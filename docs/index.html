@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asistente IA para Android</title>
+<meta name="description" content="Asistente de voz con IA para Android: dale órdenes con la voz y las ejecuta en tu móvil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --surface:#ffffff; --text:#16161d; --muted:#5d5d6e; --border:#e4e4ee;
+    --primary:#5b4bdb; --primary-ink:#ffffff; --accent:#00a891; --code:#efeff6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0f0f15; --surface:#181822; --text:#ececf3; --muted:#a3a3b5; --border:#2a2a38;
+      --primary:#7c6ff0; --primary-ink:#ffffff; --accent:#2fd3bb; --code:#22222e;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+  .wrap{max-width:880px;margin:0 auto;padding:0 16px}
+  header{padding:56px 0 32px;text-align:center}
+  .logo{width:84px;height:84px;border-radius:24px;background:var(--primary);display:grid;place-items:center;margin:0 auto 20px}
+  h1{font-size:clamp(2rem,6vw,3rem);font-weight:800;margin:0 0 12px;letter-spacing:-.02em}
+  .lead{color:var(--muted);font-size:1.15rem;max-width:620px;margin:0 auto 28px}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--primary);color:var(--primary-ink);text-decoration:none;
+       font-weight:600;padding:16px 28px;border-radius:14px;font-size:1.1rem}
+  .btn:hover{filter:brightness(1.08)}
+  .meta{color:var(--muted);font-size:.9rem;margin-top:12px}
+  section{margin:40px 0}
+  h2{font-size:1.4rem;margin:0 0 16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px}
+  .quote{font-weight:600}
+  .quote::before{content:"“";color:var(--accent)} .quote::after{content:"”";color:var(--accent)}
+  .card p{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+  ol{padding-left:22px} ol li{margin:8px 0}
+  code{background:var(--code);padding:2px 6px;border-radius:6px;font-size:.9em}
+  .note{border-left:4px solid var(--accent);background:var(--surface);padding:14px 16px;border-radius:8px;color:var(--muted)}
+  footer{color:var(--muted);text-align:center;padding:40px 0 56px;font-size:.9rem}
+  a{color:var(--primary)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="#fff"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
+    </div>
+    <h1>Asistente IA</h1>
+    <p class="lead">Háblale a tu móvil y lo hace por ti. Entiende lo que quieres decir y lo ejecuta: abre apps, la cámara, chats de WhatsApp, pregunta a ChatGPT… incluso en segundo plano.</p>
+    <a class="btn" id="download" href="https://github.com/melvinfranco99/asistente-ia-android/releases/latest/download/AsistenteIA.apk">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
+      Descargar APK
+    </a>
+    <div class="meta" id="meta">Android 8.0 o superior · gratis · código abierto</div>
+  </header>
+
+  <section>
+    <h2>Ejemplos de órdenes</h2>
+    <div class="grid">
+      <div class="card"><div class="quote">Asistente, abre la cámara</div><p>Abre la cámara de fotos al instante.</p></div>
+      <div class="card"><div class="quote">Empieza a grabar</div><p>Abre la cámara en modo vídeo y pulsa grabar.</p></div>
+      <div class="card"><div class="quote">Ábreme el chat de WhatsApp de Juan</div><p>Busca a Juan en tus contactos y abre su chat.</p></div>
+      <div class="card"><div class="quote">Abre ChatGPT y pregúntale por el clima hoy en Madrid</div><p>Escribe la pregunta, la envía y te lee la respuesta.</p></div>
+      <div class="card"><div class="quote">Pon una alarma a las siete y media</div><p>Crea la alarma sin que toques nada.</p></div>
+      <div class="card"><div class="quote">Llévame a la Puerta del Sol andando</div><p>Abre Google Maps con la ruta a pie.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Instalación</h2>
+    <ol>
+      <li>Descarga el APK desde el botón de arriba en tu móvil y ábrelo. Si Android lo pide, permite <em>instalar apps de origen desconocido</em> para tu navegador.</li>
+      <li>Consigue una clave API de Anthropic en <a href="https://console.anthropic.com/settings/keys">console.anthropic.com</a> (es lo que usa la IA; se paga por uso).</li>
+      <li>Abre <strong>Asistente IA</strong>, pega la clave y pulsa <strong>Guardar ajustes</strong>.</li>
+      <li>Concede los permisos de la sección <strong>Permisos</strong> (micrófono, contactos, control de pantalla, abrir apps en segundo plano y batería).</li>
+      <li>Pulsa <strong>Activar en segundo plano</strong>. Di <code>asistente</code> seguido de tu orden, o usa el botón <em>Hablar</em> de la notificación o del panel de ajustes rápidos.</li>
+    </ol>
+    <p class="note">Si al activar el control de pantalla Android dice que es un “ajuste restringido”, ve a Ajustes › Apps › Asistente IA, menú ⋮ › “Permitir ajustes restringidos”.</p>
+  </section>
+
+  <section>
+    <h2>Privacidad</h2>
+    <p>La app no tiene servidor propio. Tus órdenes (el texto transcrito) y, cuando hace falta, el contenido de la pantalla se envían directamente a la API de Anthropic con tu propia clave. La clave se guarda solo en tu móvil.</p>
+  </section>
+
+  <footer>
+    <a href="https://github.com/melvinfranco99/asistente-ia-android">Código fuente en GitHub</a> ·
+    <a href="https://github.com/melvinfranco99/asistente-ia-android/releases">Todas las versiones</a>
+  </footer>
+</div>
+<script>
+  fetch("https://api.github.com/repos/melvinfranco99/asistente-ia-android/releases/latest")
+    .then(r => r.ok ? r.json() : null)
+    .then(rel => {
+      if (!rel) return;
+      const apk = (rel.assets || []).find(a => a.name.endsWith(".apk"));
+      const mb = apk ? ` · ${(apk.size / 1048576).toFixed(1)} MB` : "";
+      document.getElementById("meta").textContent = `Versión ${rel.tag_name}${mb} · Android 8.0 o superior · gratis`;
+    }).catch(() => {});
+</script>
+</body>
+</html>
